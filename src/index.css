@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: iranyekan;
+  src: url("/src/assets/fonts/woff/IRANSansX-Regular.woff");
+}
+
+body {
+  font-family: iranyekan;
+  background-color: #f8f7fa;
+}
+
+.coolor {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(110, 110, 190, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
