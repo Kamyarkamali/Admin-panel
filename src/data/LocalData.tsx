@@ -18,13 +18,18 @@ import { FaRegAddressCard } from "react-icons/fa";
 import { LuServer } from "react-icons/lu";
 import { PiFolderSimpleUser } from "react-icons/pi";
 import { TbMessageCircle2 } from "react-icons/tb";
-import { IoCartOutline } from "react-icons/io5";
+import { CiLight } from "react-icons/ci";
+import { CiDark } from "react-icons/ci";
+import { GrSystem } from "react-icons/gr";
+import { MdOutlineLightMode } from "react-icons/md";
+import { IoMoon } from "react-icons/io5";
+import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 
 import image from "../assets/images/1.png";
 import image2 from "../assets/images/2.png";
 import image3 from "../assets/images/9.png";
 
-import { ImenuDshboard, Inotif } from "../types/interface";
+import { ImenuDshboard, Inotif, Ithem, Itheme } from "../types/interface";
 
 export const datadashBoard: ImenuDshboard[] = [
   {
@@ -185,5 +190,21 @@ export const notifdata: Inotif[] = [
     title: "اپلیکشن بروزرسانی شد",
     desc: "پروژه شما با موفقیت آپدیت شد",
     date: "دیروز",
+  },
+];
+
+export const options: Ithem[] = [
+  { icon: <CiLight size={20} color="gray" />, text: "light" },
+  { icon: <CiDark size={20} color="gray" />, text: "dark" },
+  { icon: <GrSystem size={20} color="gray" />, text: "system" },
+];
+
+export const themContext: Itheme[] = [
+  { id: 1, title: "light", icon: <MdOutlineLightMode size={23} /> },
+  { id: 2, title: "dark", icon: <IoMoon size={23} /> },
+  {
+    id: 3,
+    title: "system",
+    icon: <MdOutlineSystemUpdateAlt size={23} />,
   },
 ];

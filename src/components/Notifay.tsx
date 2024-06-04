@@ -1,10 +1,11 @@
-import { FC, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { notifdata } from "../data/LocalData";
 
 //icons
 import { IoCloseOutline } from "react-icons/io5";
 import { Inotif } from "../types/interface";
+import { Context } from "../context/ContextProvider";
 
 const Notifay: FC = () => {
   const [notifications, setNotifications] = useState<Inotif[]>(notifdata);
@@ -13,8 +14,46 @@ const Notifay: FC = () => {
     setNotifications(notifications.filter((item) => item.id !== id));
   };
 
+  const { theme, setTheme } = useContext(Context);
+
+  const element = document.documentElement;
+
+  const darkQuery = window.matchMedia("(prefers-color-scheme:dark)");
+
+  function onWindowMatch() {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+    }
+  }
+
+  onWindowMatch();
+
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+
+        break;
+      default:
+        localStorage.removeItem("theme");
+        onWindowMatch();
+
+        break;
+    }
+  }, [theme]);
+
   return (
-    <div className="text-black shadow-lg rounded-lg bg-[#FFFF] w-[400px] h-fit">
+    <div className="text-black dark:bg-slate-800 dark:text-white shadow-lg rounded-lg bg-[#FFFF] w-[400px] h-fit">
       <div className="flex items-center justify-between hover:text-blue-500 duration-200 text-gray-500">
         <h2 className="mr-3 text-xl text-gray-500">اعلانات</h2>
         <HiOutlineMailOpen size={22} className="ml-3" />
@@ -30,12 +69,14 @@ const Notifay: FC = () => {
                     {item.image}
                   </p>
                   <div className="flex flex-col gap-3">
-                    <p className="text-[15px] text-gray-400 font-bold">
+                    <p className="text-[15px] text-gray-400 dark:text-[#FFFF] font-bold">
                       {item.title}
                     </p>
 
                     <div className="flex items-center justify-between w-[300px]">
-                      <p className="text-[13px] text-gray-500">{item.desc}</p>
+                      <p className="text-[13px] text-gray-500 dark:text-[#FFFF]">
+                        {item.desc}
+                      </p>
                       <IoCloseOutline
                         onClick={() => handeleDelete(item.id)}
                         size={20}
@@ -55,11 +96,13 @@ const Notifay: FC = () => {
                     className="w-[40px] rounded-[100%]"
                   />
                   <div className="flex flex-col gap-3">
-                    <p className="text-[15px] text-gray-400 font-bold">
+                    <p className="text-[15px] text-gray-400 dark:text-[#FFFF] font-bold">
                       {item.title}
                     </p>
                     <div className="flex items-center justify-between w-[300px]">
-                      <p className="text-[13px] text-gray-500">{item.desc}</p>
+                      <p className="text-[13px] text-gray-500 dark:text-[#FFFF]">
+                        {item.desc}
+                      </p>
                       <IoCloseOutline
                         onClick={() => handeleDelete(item.id)}
                         size={20}

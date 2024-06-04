@@ -1,5 +1,4 @@
-import { FC, useState } from "react";
-import { MdLightMode } from "react-icons/md";
+import { FC, useContext, useEffect, useState } from "react";
 
 import UserProfile from "./UserProfile";
 import Notifay from "./Notifay";
@@ -12,6 +11,10 @@ import { VscSearch } from "react-icons/vsc";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoMenuSharp } from "react-icons/io5";
 import HamburgerMenu from "./Hamburgermenu";
+import Button from "../element/Button";
+import MenuSetting from "./MenuSetting";
+import { themContext } from "../data/LocalData";
+import { Context } from "../context/ContextProvider";
 
 const Navbar: FC = () => {
   const [search, setSearch] = useState<boolean>(false);
@@ -21,6 +24,14 @@ const Navbar: FC = () => {
   const [notify, setNotif] = useState<boolean>(false);
 
   const [hamburger, setHamburger] = useState<boolean>(false);
+
+  const [menuSetting, setMenuSetting] = useState<boolean>(true);
+
+  const { theme, setTheme } = useContext(Context);
+
+  const element = document.documentElement;
+
+  const darkQuery = window.matchMedia("(prefers-color-scheme:dark)");
 
   const clickNotif = () => {
     setNotif((prev) => !prev);
@@ -32,6 +43,38 @@ const Navbar: FC = () => {
     setProfile((prev) => !prev);
   };
 
+  function onWindowMatch() {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+    }
+  }
+
+  onWindowMatch();
+
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+
+        break;
+      default:
+        localStorage.removeItem("theme");
+        onWindowMatch();
+
+        break;
+    }
+  }, [theme]);
+
   return (
     <div
       className={`${
@@ -40,9 +83,9 @@ const Navbar: FC = () => {
           : null
       }`}
     >
-      <div className="max-w-[1200px] mt-[1rem] mx-auto shadow-md rounded-lg p-4">
+      <div className="max-w-[1200px] bg-white dark:bg-slate-800 dark:text-white duration-300 fixed left-0 lg:right-[3rem] right-[0.4rem] mt-[0.3rem] mx-auto shadow-md rounded-lg p-4">
         <div className="flex justify-between items-center">
-          <div className="xl:hidden relative">
+          <div className="lg:hidden relative">
             <IoMenuSharp
               onClick={() => setHamburger(true)}
               size={25}
@@ -51,7 +94,7 @@ const Navbar: FC = () => {
             />
             <div
               className={`absolute mt-[-2.4rem] transition-all duration-300 ease-in ${
-                hamburger ? "right-[-1rem] top-0" : "right-[-1400%] top-0"
+                hamburger ? "right-[-1.4rem] top-0" : "right-[-1600%] top-0"
               }`}
             >
               <HamburgerMenu
@@ -81,8 +124,16 @@ const Navbar: FC = () => {
 
           {!search && (
             <div className="flex items-center gap-4 cursor-pointer">
-              <div>
-                <MdLightMode size={22} color="gray" />
+              <div className="flex items-center  gap-7 ml-8">
+                {themContext.map((items) => (
+                  <button
+                    onClick={() => setTheme(items.title)}
+                    key={items.title}
+                    className={` ${theme === items.title && "text-blue-600"}`}
+                  >
+                    {items.icon}
+                  </button>
+                ))}
               </div>
 
               <div className="relative">
@@ -96,7 +147,7 @@ const Navbar: FC = () => {
 
                   <div
                     className={`absolute transition-all duration-300 ease-in left-0 ${
-                      notify ? "top-[5rem]" : "top-[-4000%]"
+                      notify ? "top-[2.6rem]" : "top-[-4000%]"
                     }`}
                   >
                     <Notifay />
@@ -126,6 +177,26 @@ const Navbar: FC = () => {
               </div>
             </div>
           )}
+        </div>
+      </div>
+
+      <div>
+        <div
+          className={`absolute  transition-all duration-200   ease-in ${
+            menuSetting ? "left-0 top-[12rem]" : "left-0 top-[-100%]"
+          }`}
+        >
+          <Button menuSetting={menuSetting} setMenuSetting={setMenuSetting} />
+        </div>
+        <div
+          className={`absolute  transition-all duration-200  ease-in left-1 ${
+            !menuSetting ? "top-0" : "top-[-130%]"
+          }`}
+        >
+          <MenuSetting
+            menuSetting={menuSetting}
+            setMenuSetting={setMenuSetting}
+          />
         </div>
       </div>
     </div>

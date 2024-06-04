@@ -15,13 +15,15 @@ function App() {
         <div>
           <Navbar />
         </div>
-
         <div className="content mt-9">
           <Routes>
             <Route path="/hello" element={<Main />} />
-            <Route path="/hellos" element={<p>hello</p>} />
           </Routes>
         </div>
+
+        {/* <div>
+          <Main2 />
+        </div> */}
       </div>
     </div>
   );

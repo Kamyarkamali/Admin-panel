@@ -1,13 +1,7 @@
 import React from "react";
 
 function Main() {
-  return (
-    <div className="flex justify-between">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-    </div>
-  );
+  return <div className="mt-[8rem] mr-9">Main</div>;
 }
 
 export default Main;
