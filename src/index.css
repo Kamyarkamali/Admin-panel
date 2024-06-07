@@ -10,6 +10,7 @@
 body {
   font-family: iranyekan;
   background-color: #f8f7fa;
+  transition: all 0.3s ease-in;
 }
 
 .coolor {
@@ -20,4 +21,8 @@ body {
     rgba(110, 110, 190, 1) 35%,
     rgba(0, 212, 255, 1) 100%
   );
+}
+
+.dark {
+  background-color: #1e293b;
 }

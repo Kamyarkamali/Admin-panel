@@ -29,7 +29,17 @@ import image from "../assets/images/1.png";
 import image2 from "../assets/images/2.png";
 import image3 from "../assets/images/9.png";
 
-import { ImenuDshboard, Inotif, Ithem, Itheme } from "../types/interface";
+import slider1 from "../assets/slider/1.png";
+import slider2 from "../assets/slider/2.png";
+import slider3 from "../assets/slider/3.png";
+
+import {
+  ImenuDshboard,
+  Inotif,
+  Islider,
+  Ithem,
+  Itheme,
+} from "../types/interface";
 
 export const datadashBoard: ImenuDshboard[] = [
   {
@@ -206,5 +216,41 @@ export const themContext: Itheme[] = [
     id: 3,
     title: "system",
     icon: <MdOutlineSystemUpdateAlt size={23} />,
+  },
+];
+
+export const dataSlider: Islider[] = [
+  {
+    id: 1,
+    image: slider1,
+    title: "بررسی وبسایت",
+    nerkh: "%28.5",
+    name: "ترافیک",
+    viesitYekta: "28%",
+    userYekta: "1.2k",
+    nerkhtabdil: "12%",
+    viewNumbers: "3.1k",
+  },
+  {
+    id: 2,
+    image: slider2,
+    title: "بررسی وبسایت",
+    nerkh: "%28.5",
+    name: "آمار فروش",
+    sod: "28%",
+    orders: 127,
+    items: 2.3,
+    orderNumber: 18,
+  },
+  {
+    id: 3,
+    image: slider3,
+    title: "بررسی وبسایت",
+    nerkh: "%28.5",
+    name: "منابع درآمد",
+    mostaghim: 238,
+    khadamat: 890,
+    items: 2.3,
+    campine: 1.2,
   },
 ];

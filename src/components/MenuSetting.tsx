@@ -55,11 +55,13 @@ const MenuSetting: FC<Isetting> = ({ menuSetting, setMenuSetting }) => {
   }, [theme]);
 
   return (
-    <div className="transition-all hidden lg:block duration-200 ease-in bg-white dark:bg-slate-800 dark:text-white w-[400px] h-screen shadow-lg shadow-gray-300 p-1 rounded-lg">
+    <div className="transition-all hidden lg:block duration-200 ease-in bg-[#FFFF] dark:bg-slate-800 w-[400px] h-screen shadow-lg shadow-gray-300 p-1 rounded-lg">
       <div className="flex gap-2 items-center justify-between ml-4 border-b-[1px] border-gray-300 ">
         <div className="p-3 flex flex-col gap-1">
-          <h3 className="text-gray-500 font-bold">شخصی سازی قالب</h3>
-          <p className="text-md text-gray-500">
+          <h3 className="text-gray-500 font-bold dark:text-white">
+            شخصی سازی قالب
+          </h3>
+          <p className="text-md text-gray-500 dark:text-white">
             شخصی سازی کنید و در لحظه تعیرات را ببینید
           </p>
         </div>
@@ -75,62 +77,69 @@ const MenuSetting: FC<Isetting> = ({ menuSetting, setMenuSetting }) => {
       </div>
 
       <div>
-        <p className="mt-3 mr-3 bg-gray-200 rounded-lg inline-block p-1 text-[13px] text-blue-400">
+        <p className="mt-3 mr-3 dark:text-white bg-gray-200 rounded-lg inline-block p-1 text-[13px] text-blue-400">
           پوسته ها
         </p>
 
-        <p className="text-sm text-center mb-3 text-gray-400">
+        <p className="text-sm dark:text-white text-center mb-3 text-gray-400">
           استایل ها (حالت دهی)
         </p>
         <div className="flex items-center justify-center gap-5">
           <div className="border-[1px] relative flex flex-col cursor-pointer items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <MdOutlineLightMode size={30} color="gray" />
-            <span className="text-sm text-blue-600">روشن</span>
+            <span className="text-sm dark:text-white text-blue-600">روشن</span>
           </div>
           <div className="border-[1px] relative cursor-pointer flex flex-col items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <MdDarkMode size={30} color="gray" />
-            <span className="text-sm text-blue-600">تاریک</span>
+            <span className="text-sm dark:text-white text-blue-600">تاریک</span>
           </div>
           <div className="border-[1px] cursor-pointer flex flex-col items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <MdOutlineComputer size={30} color="gray" />
-            <span className="text-sm text-blue-600">سیستم</span>
+            <span className="text-sm dark:text-white text-blue-600">سیستم</span>
           </div>
         </div>
       </div>
 
       <div>
-        <p className="mt-3 mr-3 bg-gray-200 rounded-lg inline-block p-1 text-[13px] text-blue-400">
+        <p className="mt-3 mr-3 dark:text-white bg-gray-200 rounded-lg inline-block p-1 text-[13px] text-blue-400">
           پوسته ها
         </p>
 
-        <p className="text-sm text-center mb-3 text-gray-400">
+        <p className="text-sm text-center dark:text-white mb-3 text-gray-400">
           استایل ها (حالت دهی)
         </p>
         <div className="flex items-center justify-center gap-5">
           <div className="border-[1px] relative flex flex-col cursor-pointer items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <img src={image1} alt="/" />
             <div className="absolute bottom-[-1.3rem]">
-              <span className="text-[12px] text-blue-600"> پیش فرض</span>
+              <span className="text-[12px] dark:text-white text-blue-600">
+                {" "}
+                پیش فرض
+              </span>
             </div>
           </div>
           <div className="border-[1px] relative cursor-pointer flex flex-col items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <img src={image2} alt="/" />
             <div className="absolute bottom-[-1.3rem]">
-              <span className="text-[12px] text-blue-600">حاشیه دار</span>
+              <span className="text-[12px] dark:text-white text-blue-600">
+                حاشیه دار
+              </span>
             </div>
           </div>
           <div className="border-[1px] relative cursor-pointer flex flex-col items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <img src={image3} alt="/" />
 
             <div className="absolute bottom-[-1.3rem]">
-              <span className="text-[12px] text-blue-600">نیمه تاریک</span>
+              <span className="text-[12px] dark:text-white text-blue-600">
+                نیمه تاریک
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       <div>
-        <p className="mt-9 mr-3 rounded-lg inline-block p-3 text-[13px] text-blue-400">
+        <p className="mt-9 dark:text-white mr-3 rounded-lg inline-block p-3 text-[13px] text-blue-400">
           صفحات منوی کناری
         </p>
 
@@ -138,13 +147,17 @@ const MenuSetting: FC<Isetting> = ({ menuSetting, setMenuSetting }) => {
           <div className="border-[1px] relative flex flex-col cursor-pointer items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <img src={image4} alt="/" />
             <div className="absolute bottom-[-1.3rem] right-0">
-              <span className="text-[12px] mt-4 text-blue-600">منو باز</span>
+              <span className="text-[12px] dark:text-white mt-4 text-blue-600">
+                منو باز
+              </span>
             </div>
           </div>
           <div className="border-[1px] relative cursor-pointer flex flex-col items-center justify-center w-[100px] h-[70px] border-gray-300 rounded-lg">
             <img src={image5} alt="/" />
             <div className="absolute bottom-[-1.3rem] right-0">
-              <span className="text-[12px] mt-4 text-blue-600">منو بسته</span>
+              <span className="text-[12px] dark:text-white mt-4 text-blue-600">
+                منو بسته
+              </span>
             </div>
           </div>
         </div>

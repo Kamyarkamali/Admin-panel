@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+
 import Dahsboard from "./components/Dashboard";
 import Navbar from "./components/Navbar.tsx";
 import Main from "./components/Main.tsx";
+import Main2 from "./components/Main2.tsx";
 
 function App() {
   return (
-    <div className="flex gap-3">
+    <div className="flex justify-center gap-3 dark:bg-slate-800 transition-all duration-200 ease-in">
       <div className="border">
         <Dahsboard />
       </div>
@@ -21,9 +23,9 @@ function App() {
           </Routes>
         </div>
 
-        {/* <div>
+        <div className="mt-9 mr-[3rem]">
           <Main2 />
-        </div> */}
+        </div>
       </div>
     </div>
   );

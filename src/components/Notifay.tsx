@@ -53,7 +53,7 @@ const Notifay: FC = () => {
   }, [theme]);
 
   return (
-    <div className="text-black dark:bg-slate-800 dark:text-white shadow-lg rounded-lg bg-[#FFFF] w-[400px] h-fit">
+    <div className="text-black z-auto dark:bg-slate-800 dark:text-white shadow-lg rounded-lg bg-[#FFFF] w-[400px] h-fit">
       <div className="flex items-center justify-between hover:text-blue-500 duration-200 text-gray-500">
         <h2 className="mr-3 text-xl text-gray-500">اعلانات</h2>
         <HiOutlineMailOpen size={22} className="ml-3" />
@@ -62,10 +62,13 @@ const Notifay: FC = () => {
       {notifications.length ? (
         <div>
           {notifications.map((item) => (
-            <div className="mr-3 mb-11 border-b-[1px] p-3 border-gray-300">
+            <div
+              key={item.id}
+              className="mr-3 mb-11 border-b-[1px] p-3 border-gray-300"
+            >
               {item.image === "ن م" ? (
                 <div className="flex items-center gap-3">
-                  <p className="bg-[#ae7f81] p-3 rounded-[100%]">
+                  <p className="bg-[#ae7f81] h-[40px] w-[40px] flex items-center justify-center rounded-[100%]">
                     {item.image}
                   </p>
                   <div className="flex flex-col gap-3">

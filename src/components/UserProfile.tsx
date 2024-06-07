@@ -51,7 +51,7 @@ const UserProfile: FC = () => {
   }, [theme]);
 
   return (
-    <div className="bg-white dark:bg-slate-800  w-[230px] shadow-lg rounded-lg p-3 h-fit">
+    <div className=" dark:bg-slate-800 bg-[#FFFF] w-[230px] shadow-lg rounded-lg p-3 h-fit">
       <div>
         <div className="flex gap-2 text-[13px] text-gray-600 border-b-[1px] p-2 border-gray-300">
           <img className="w-[40px] rounded-[100%]" src={image} alt="/" />

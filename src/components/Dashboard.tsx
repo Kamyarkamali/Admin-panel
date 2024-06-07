@@ -44,7 +44,7 @@ const dashboard: FC = () => {
   }, [theme]);
 
   return (
-    <div className="fixed right-0 top-0 z-50">
+    <div className="fixed right-0 top-[-25px] z-[12000]">
       <div
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}

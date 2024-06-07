@@ -41,3 +41,24 @@ export interface Itheme {
   icon: JSX.Element;
   title: string;
 }
+
+export interface Islider {
+  id: number;
+  name: string;
+  nerkh?: string;
+  title: string;
+  orderNumber?: number;
+  items?: number;
+  dos?: number;
+  orders?: number;
+  mostaghim?: number;
+  zir?: string;
+  khadamat?: number;
+  campine?: number;
+  viesitYekta?: string;
+  userYekta?: string;
+  viewNumbers?: string;
+  nerkhtabdil?: string;
+  image: string;
+  sod?: string;
+}

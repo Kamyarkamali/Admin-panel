@@ -77,13 +77,13 @@ const Navbar: FC = () => {
 
   return (
     <div
-      className={`${
+      className={`z-[20000]${
         hamburger
-          ? "fixed top-0 left-0 right-0 w-[100%] h-[100%] bg-black/30"
+          ? "fixed top-0 left-0 right-0 w-[100%] h-[100%] bg-black/30 dark:bg-slate-800"
           : null
       }`}
     >
-      <div className="max-w-[1200px] bg-white dark:bg-slate-800 dark:text-white duration-300 fixed left-0 lg:right-[3rem] right-[0.4rem] mt-[0.3rem] mx-auto shadow-md rounded-lg p-4">
+      <div className="max-w-[1200px] dark:bg-slate-800 dark:text-white bg-[#FFF] duration-300 fixed left-0 lg:right-[3rem] right-[0.4rem] mt-[0.3rem] mx-auto shadow-md rounded-lg p-4 z-[10000]">
         <div className="flex justify-between items-center">
           <div className="lg:hidden relative">
             <IoMenuSharp
@@ -94,7 +94,9 @@ const Navbar: FC = () => {
             />
             <div
               className={`absolute mt-[-2.4rem] transition-all duration-300 ease-in ${
-                hamburger ? "right-[-1.4rem] top-0" : "right-[-1600%] top-0"
+                hamburger
+                  ? "right-[-1.4rem] top-[-13px]"
+                  : "right-[-1600%] top-0"
               }`}
             >
               <HamburgerMenu
@@ -143,11 +145,11 @@ const Navbar: FC = () => {
                   color="gray"
                 />
                 <div className="absolute top-[-1rem] left-[-6px] text-[11px] flex-col items-center text-white bg-red-500 w-[20px] h-[20px] rounded-[100%] flex justify-center">
-                  <span>3</span>
+                  <span>5</span>
 
                   <div
                     className={`absolute transition-all duration-300 ease-in left-0 ${
-                      notify ? "top-[2.6rem]" : "top-[-4000%]"
+                      notify ? "top-[2.6rem]" : "top-[-6000%]"
                     }`}
                   >
                     <Notifay />
@@ -163,10 +165,10 @@ const Navbar: FC = () => {
                   alt="/"
                 />
                 <div
-                  className={`absolute transition-all duration-300 ease-in z-40 ${
+                  className={`absolute transition-all duration-300 ease-in z-50 ${
                     profile
                       ? "top-[3rem] left-[1rem]"
-                      : "top-[-1200%] left-[1rem]"
+                      : "top-[-1300%] left-[1rem]"
                   }`}
                 >
                   <UserProfile />
@@ -189,8 +191,8 @@ const Navbar: FC = () => {
           <Button menuSetting={menuSetting} setMenuSetting={setMenuSetting} />
         </div>
         <div
-          className={`absolute  transition-all duration-200  ease-in left-1 ${
-            !menuSetting ? "top-0" : "top-[-130%]"
+          className={`absolute  transition-all duration-200 z-[200000]  ease-in left-1 ${
+            !menuSetting ? "top-0" : "top-[-200%]"
           }`}
         >
           <MenuSetting
