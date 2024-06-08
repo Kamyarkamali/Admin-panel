@@ -3,7 +3,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 
 function GridDemo() {
   return (
-    <div className="shadow-md w-[400px] flex flex-col items-center bg-[#ffff] dark:bg-slate-800 transition-all duration-200  ease-in rounded-lg dark:shadow-slate-900">
+    <div className="shadow-md w-[360px] flex flex-col items-center bg-[#ffff] dark:bg-slate-800 transition-all duration-200  ease-in rounded-lg dark:shadow-slate-900">
       <Typography variant="h6" color={"blue"}>
         در آمد سیستم
       </Typography>
@@ -15,7 +15,7 @@ function GridDemo() {
           },
         ]}
         height={210}
-        width={400}
+        width={373}
         margin={{ left: 30, right: 30, top: 30, bottom: 30 }}
         grid={{ vertical: true, horizontal: true }}
       />

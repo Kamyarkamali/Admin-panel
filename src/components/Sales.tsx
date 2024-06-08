@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ProgressBar, Button } from "react-bootstrap";
+import { ProgressBar } from "react-bootstrap";
 
 //icons
 import { FiShoppingCart } from "react-icons/fi";
