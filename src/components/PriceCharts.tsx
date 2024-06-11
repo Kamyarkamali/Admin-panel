@@ -1,9 +1,18 @@
 import { Typography } from "@mui/material";
 import { LineChart } from "@mui/x-charts/LineChart";
+import { useContext } from "react";
+import { Context } from "../context/ContextProvider";
 
 function GridDemo() {
+  /* @ts-ignore */
+  const { shadow } = useContext(Context);
+
   return (
-    <div className="shadow-md w-[360px] flex flex-col items-center bg-[#ffff] dark:bg-slate-800 transition-all duration-200  ease-in rounded-lg dark:shadow-slate-900">
+    <div
+      className={`${
+        shadow && "shadow-md"
+      } w-[400px] flex flex-col items-center bg-[#ffff] dark:bg-slate-800 transition-all duration-200  ease-in rounded-lg dark:shadow-slate-900 lg:w-[360px]  md:w-[740px] sm:w-[610px]`}
+    >
       <Typography variant="h6" color={"blue"}>
         در آمد سیستم
       </Typography>

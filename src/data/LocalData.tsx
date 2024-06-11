@@ -24,6 +24,7 @@ import { GrSystem } from "react-icons/gr";
 import { MdOutlineLightMode } from "react-icons/md";
 import { IoMoon } from "react-icons/io5";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
+import { IoIosArrowUp } from "react-icons/io";
 
 import image from "../assets/images/1.png";
 import image2 from "../assets/images/2.png";
@@ -33,7 +34,15 @@ import slider1 from "../assets/slider/1.png";
 import slider2 from "../assets/slider/2.png";
 import slider3 from "../assets/slider/3.png";
 
+import contry1 from "../assets/conterys/2.png";
+import contry2 from "../assets/conterys/6.png";
+import contry3 from "../assets/conterys/3.png";
+import contry4 from "../assets/conterys/5.png";
+import contry5 from "../assets/conterys/1.png";
+import contry6 from "../assets/conterys/4.webp";
+
 import {
+  Iconterys,
   ImenuDshboard,
   Inotif,
   Islider,
@@ -252,5 +261,56 @@ export const dataSlider: Islider[] = [
     khadamat: 890,
     items: 2.3,
     campine: 1.2,
+  },
+];
+
+export const conterys: Iconterys[] = [
+  {
+    id: 1,
+    image: contry1,
+    name: "آمریکا",
+    price: "8567K",
+    darsad: "25%8",
+    icon: <IoIosArrowUp />,
+  },
+  {
+    id: 2,
+    image: contry2,
+    name: "برزیل",
+    price: "8565K",
+    darsad: "6.2%",
+    icon: <IoIosArrowUp />,
+  },
+  {
+    id: 3,
+    image: contry3,
+    name: "کانادا",
+    price: "8565K",
+    darsad: "12.4%",
+    icon: <IoIosArrowUp />,
+  },
+  {
+    id: 4,
+    image: contry4,
+    name: "انگلیس",
+    price: "754",
+    darsad: "11.9%",
+    icon: <IoIosArrowUp />,
+  },
+  {
+    id: 5,
+    image: contry5,
+    name: "ترکیه",
+    price: "45",
+    darsad: "16.2%",
+    icon: <IoIosArrowUp />,
+  },
+  {
+    id: 6,
+    image: contry6,
+    name: "ترکیه",
+    price: "98",
+    darsad: "14.8%",
+    icon: <IoIosArrowUp />,
   },
 ];

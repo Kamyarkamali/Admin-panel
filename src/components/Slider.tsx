@@ -9,7 +9,7 @@ import { Autoplay } from "swiper/modules";
 
 const Slider: FC = () => {
   return (
-    <div className="max-w-[1200px] lg:w-[450px] md:w-[440px] sm:w-[410px] w-[350px] mx-auto  bg-[#7367F0] shadow-md  h-[250px] p-3 rounded-lg flex ">
+    <div className="max-w-[1200px] lg:w-[450px] md:w-[740px] sm:w-[610px] w-[404px] mx-auto  bg-[#7367F0] shadow-md  h-[250px] p-3 rounded-lg flex ">
       <Swiper
         autoplay={{ delay: 3000 }}
         loop={true}

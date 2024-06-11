@@ -62,3 +62,12 @@ export interface Islider {
   image: string;
   sod?: string;
 }
+
+export interface Iconterys {
+  id: number;
+  price: string;
+  name: string;
+  image: any;
+  darsad: string;
+  icon: JSX.Element;
+}

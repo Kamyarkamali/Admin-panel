@@ -14,7 +14,8 @@ const Notifay: FC = () => {
     setNotifications(notifications.filter((item) => item.id !== id));
   };
 
-  const { theme, setTheme } = useContext(Context);
+  /* @ts-ignore */
+  const { theme } = useContext(Context);
 
   const element = document.documentElement;
 

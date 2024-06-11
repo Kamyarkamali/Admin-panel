@@ -4,7 +4,7 @@ import { Isetting } from "../types/interface";
 
 const Button: FC<Isetting> = ({ setMenuSetting }) => {
   return (
-    <div>
+    <div className="hidden xl:block">
       <button
         onClick={() => setMenuSetting((prev) => !prev)}
         className="bg-blue-600 p-1 w-[50px] rounded-[6px] flex justify-center"

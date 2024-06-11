@@ -12,7 +12,8 @@ import { RxExit } from "react-icons/rx";
 import { Context } from "../context/ContextProvider";
 
 const UserProfile: FC = () => {
-  const { theme, setTheme } = useContext(Context);
+  /* @ts-ignore */
+  const { theme } = useContext(Context);
 
   const element = document.documentElement;
 

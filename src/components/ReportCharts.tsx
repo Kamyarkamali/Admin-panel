@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ProgressBar } from "react-bootstrap";
 
@@ -7,21 +7,24 @@ import { TbBrandCashapp } from "react-icons/tb";
 import { BarChart } from "@mui/x-charts";
 import { IoIosTimer } from "react-icons/io";
 import { PiCashRegisterLight } from "react-icons/pi";
+import { Context } from "../context/ContextProvider";
 
 const BasicBars: FC = () => {
-  const [progress, setProgress] = useState<number>(60);
-  const [mony, setMony] = useState<number>(74);
-
-  const [monys, setMonys] = useState<number>(72);
+  const [progress] = useState<number>(60);
+  const [mony] = useState<number>(74);
+  const [monys] = useState<number>(72);
   const [chartWidth, setChartWidth] = useState<number>(680);
+
+  /* @ts-ignore */
+  const { shadow } = useContext(Context);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width >= 1200) {
         setChartWidth(680);
-      } else if (width >= 992) {
-        setChartWidth(600);
+      } else if (width <= 827) {
+        setChartWidth(340);
       } else if (width >= 768) {
         setChartWidth(500);
       } else {
@@ -30,13 +33,17 @@ const BasicBars: FC = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Set initial width
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="bg-[#FFFF] max-w-[1200px] mx-auto w-[700px] dark:bg-slate-800 dark:shadow-gray-900 dark:text-[#FFFF] rounded-lg  shadow-md transition-all duration-200 ease-in ">
+    <div
+      className={`bg-[#FFFF] max-w-[1200px] mx-auto flex flex-col items-center lg:w-[750px] dark:bg-slate-800 dark:shadow-gray-900 dark:text-[#FFFF] rounded-lg ${
+        shadow && "shadow-md"
+      } transition-all duration-200 ease-in`}
+    >
       <div className="flex flex-col items-center gap-2">
         <p className="mt-3 text-xl text-orange-500 dark:text-white">
           گزارش فروش
@@ -46,7 +53,7 @@ const BasicBars: FC = () => {
         </span>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between w-full px-4">
         <div className="flex flex-col items-center justify-center w-[200px] gap-2">
           <span className="font-bold dark:text-white text-xl">468 تومان</span>
           <span className="bg-green-300 p-1 rounded-md text-[13px] text-green-700 font-bold">
@@ -125,12 +132,22 @@ const BasicBars: FC = () => {
         </div>
       </div>
 
-      <BarChart
-        xAxis={[{ scaleType: "band", data: ["فروردین", "اردیبهشت", "خرداد"] }]}
-        series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
-        width={chartWidth}
-        height={250}
-      />
+      <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full">
+          <BarChart
+            xAxis={[
+              { scaleType: "band", data: ["فروردین", "اردیبهشت", "خرداد"] },
+            ]}
+            series={[
+              { data: [4, 3, 5] },
+              { data: [1, 6, 3] },
+              { data: [2, 5, 6] },
+            ]}
+            width={chartWidth}
+            height={250}
+          />
+        </div>
+      </div>
     </div>
   );
 };

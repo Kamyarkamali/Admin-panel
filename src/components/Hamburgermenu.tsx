@@ -8,8 +8,9 @@ import { IoCloseOutline } from "react-icons/io5";
 import { IopenMenu } from "../types/interface";
 import { Context } from "../context/ContextProvider";
 
-const HamburgerMenu: FC<IopenMenu> = ({ hamburger, setHamburger }) => {
-  const { theme, setTheme } = useContext(Context);
+const HamburgerMenu: FC<IopenMenu> = ({ setHamburger }) => {
+  /* @ts-ignore */
+  const { theme } = useContext(Context);
 
   const element = document.documentElement;
 

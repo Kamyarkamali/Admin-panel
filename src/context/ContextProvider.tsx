@@ -8,8 +8,27 @@ const ContextProvider: FC<Ichildren> = ({ children }) => {
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
   );
 
+  const [shadow, setShadow] = useState<boolean>(true);
+
+  const [menuSetting, setMenuSetting] = useState<boolean>(true);
+
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
-    <Context.Provider value={{ theme, setTheme }}>{children}</Context.Provider>
+    <Context.Provider
+      value={{
+        theme,
+        setTheme,
+        shadow,
+        setShadow,
+        menuSetting,
+        setMenuSetting,
+        open,
+        setOpen,
+      }}
+    >
+      {children}
+    </Context.Provider>
   );
 };
 

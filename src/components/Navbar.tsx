@@ -24,10 +24,9 @@ const Navbar: FC = () => {
   const [notify, setNotif] = useState<boolean>(false);
 
   const [hamburger, setHamburger] = useState<boolean>(false);
-
-  const [menuSetting, setMenuSetting] = useState<boolean>(true);
-
-  const { theme, setTheme } = useContext(Context);
+  /* @ts-ignore */
+  const { theme, setTheme, shadow, menuSetting, setMenuSetting } =
+    useContext(Context);
 
   const element = document.documentElement;
 
@@ -83,7 +82,11 @@ const Navbar: FC = () => {
           : null
       }`}
     >
-      <div className="max-w-[1200px] dark:bg-slate-800 dark:text-white bg-[#FFF] duration-300 fixed left-0 lg:right-[3rem] right-[0.4rem] mt-[0.3rem] mx-auto shadow-md rounded-lg p-4 z-[10000]">
+      <div
+        className={`max-w-[1200px] dark:bg-slate-800 dark:text-white bg-[#FFF] duration-300 fixed left-0 lg:right-[3rem] right-[0.4rem] mt-[0.3rem] mx-auto ${
+          shadow && "shadow-md"
+        } rounded-lg p-4 z-[10000]`}
+      >
         <div className="flex justify-between items-center">
           <div className="lg:hidden relative">
             <IoMenuSharp
@@ -107,7 +110,7 @@ const Navbar: FC = () => {
           </div>
           <div
             onClick={() => setSearch(true)}
-            className="flex items-center text-sm cursor-pointer"
+            className="xl:flex hidden items-center text-sm cursor-pointer"
           >
             {search ? (
               <input
@@ -148,7 +151,7 @@ const Navbar: FC = () => {
                   <span>5</span>
 
                   <div
-                    className={`absolute transition-all duration-300 ease-in left-0 ${
+                    className={`absolute transition-all duration-300 ease-in lg:left-0 left-[-80px] ${
                       notify ? "top-[2.6rem]" : "top-[-6000%]"
                     }`}
                   >
@@ -184,7 +187,7 @@ const Navbar: FC = () => {
 
       <div>
         <div
-          className={`absolute  transition-all duration-200   ease-in ${
+          className={`fixed  transition-all duration-200   ease-in ${
             menuSetting ? "left-0 top-[12rem]" : "left-0 top-[-100%]"
           }`}
         >
@@ -195,10 +198,7 @@ const Navbar: FC = () => {
             !menuSetting ? "top-0" : "top-[-200%]"
           }`}
         >
-          <MenuSetting
-            menuSetting={menuSetting}
-            setMenuSetting={setMenuSetting}
-          />
+          <MenuSetting />
         </div>
       </div>
     </div>

@@ -1,11 +1,10 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useContext, useEffect } from "react";
 import { datadashBoard } from "../data/LocalData";
 import { Context } from "../context/ContextProvider";
 
 const dashboard: FC = () => {
-  const [open, setOpen] = useState<boolean>(false);
-
-  const { theme, setTheme } = useContext(Context);
+  /* @ts-ignore */
+  const { theme, open, setOpen } = useContext(Context);
 
   const element = document.documentElement;
 

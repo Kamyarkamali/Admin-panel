@@ -1,16 +1,23 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ProgressBar } from "react-bootstrap";
 
 //icons
 import { FiShoppingCart } from "react-icons/fi";
 import { GrView } from "react-icons/gr";
+import { Context } from "../context/ContextProvider";
 
 const Sales: FC = () => {
-  const [progress, setProgress] = useState<number>(60);
+  const [progress] = useState<number>(60);
+  /* @ts-ignore */
+  const { shadow } = useContext(Context);
 
   return (
-    <div className="shadow-md bg-[#ffff] dark:bg-slate-800 dark:text-white shadow-gray-200 dark:shadow-slate-900 transition-all duration-200 ease-in rounded-lg lg:w-[330px] md:w-[450px] sm:w-[410px] w-[350px] h-[240px]">
+    <div
+      className={`${
+        shadow && "shadow-md"
+      } bg-[#ffff] dark:bg-slate-800 dark:text-white shadow-gray-200 dark:shadow-slate-900 transition-all duration-200 ease-in rounded-lg lg:w-[350px] md:w-[740px] sm:w-[610px] w-[390px] h-[240px]`}
+    >
       <div>
         <div className="flex items-center justify-between p-3">
           <p className="mr-3 dark:text-white text-sm text-gray-500">
